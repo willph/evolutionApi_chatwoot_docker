@@ -40,6 +40,28 @@ The above command will create the entire Chatwoot database. Finally, to finish, 
     docker-compose up
 
 
+To set a created instance in EvolutionApi to Chatwoot, you only need to provide the following data:
+
+* **"account_id":** *the id of the created Chatwoot user*
+* **"token":** *token of this created user*
+* **"url": "http://rails:3000"** *This remains unchanged as it is the container where Chatwoot is located.*
+
+Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_instance_name
+
+**chosen_instance_name** -> *This refers to the name chosen when creating the instance.*
+
+    {
+	   "enabled": true,
+	   "account_id": "id_user_chatwoot",
+       "token": "Token_of_user_chatwoot",
+       "url": "http://rails:3000",
+       "sign_msg": true
+    }
+
+![set_chatwoot](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/6be316c2-a8ce-4d23-9034-43285c3b2fad)
+
+
+
 ## Postman EvolutionApi v1.3.1
     https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6
 
