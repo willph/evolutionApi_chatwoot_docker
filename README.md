@@ -40,6 +40,22 @@ The above command will create the entire Chatwoot database. Finally, to finish, 
     docker-compose up
 
 
+
+Create an Instance in EvolutionApi
+Send a JSON of type POST to the URL localhost:8080/instance/create
+
+"instanceName": -> the desired name for the instance
+"token": -> Create an apiKey for this instance
+
+    {
+       "instanceName": "Name_Instance",
+       "token": "Create_apiKey",
+       "qrcode": true
+    }
+
+![create_instance](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/4d84ba91-5f7c-4be8-96c6-731378ada804)
+
+
 To set a created instance in EvolutionApi to Chatwoot, you only need to provide the following data:
 
 * **"account_id":** *the id of the created Chatwoot user*
