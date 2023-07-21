@@ -21,6 +21,11 @@ After that, run the following command:
 
     cd evolution_chatwoot
 
+To copy and paste the file .env.example as .env in these two locations, run the following commands:
+
+    cp .env.example .env
+    cp evolution-api/Docker/.env.example evolution-api/Docker/.env
+
 Inside the "evolution_chatwoot" folder, execute:
 
     docker-compose up --build --no-start
@@ -32,3 +37,11 @@ Wait while it compiles all the data. After completion, enter the following comma
 The above command will create the entire Chatwoot database. Finally, to finish, execute this command to bring up all the containers:
 
     docker-compose up
+
+
+#### Note: All tests were performed using Windows 10 and Docker Desktop 4.21.1 (114176). Even though the tutorial is not complete and lacks images, those with some knowledge should be able to test it.
+
+
+_If you need any further assistance, don't hesitate to ask._
+
+_Good luck!_
