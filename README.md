@@ -78,6 +78,41 @@ Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_in
 
 
 
+With the return from **set chatwoot**, you will get the data from 2 variables:
+
+*    **"name_inbox"**
+*    **"webhook_url":**
+
+These variables will be used to create an inbox in Chatwoot.
+
+With Chatwoot open and properly logged in, click on **Settings**, then on **Inbox**, and **Add an Inbox**. Choose **API** as the type.
+
+In the **Channel Name** field, enter what came in **"name_inbox"**, and in the **Webhook URL** field, enter what came in **"webhook_url":**.
+
+Proceed with the remaining steps until you finish and create your inbox.
+
+![canal-api](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/eafff7a5-084d-40ec-b4bf-20491c3967c9)
+
+
+
+To generate the QRCode in the inbox, go to __contacts__, then __new contacts__, and __add a contact__ containing the following data as shown in the image below:
+
+
+![criar-contato](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/80e8eadc-e5a4-4b99-bfde-57d76af3732b)
+
+
+After creating the contact, click on it, then on new message, and in the dialog box that appears, choose the created inbox and write the message __iniciar__, then click on send message.
+
+
+![gera-qr-code](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/438d77d1-4877-4e63-8683-147a69965a3d)
+
+
+Now, just go to the inbox and scan the generated QRCode.
+
+![qr-code-gerado](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/1915a150-bc5c-4369-b2f9-ef5f945f368d)
+
+
+
 ## Postman EvolutionApi v1.3.1
     https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6
 
