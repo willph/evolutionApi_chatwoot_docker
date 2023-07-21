@@ -42,10 +42,10 @@ The above command will create the entire Chatwoot database. Finally, to finish, 
 
 
 Create an Instance in EvolutionApi
-Send a JSON of type POST to the URL localhost:8080/instance/create
+Send a **JSON** of type **POST** to the URL **localhost:8080/instance/create**
 
-"instanceName": -> the desired name for the instance
-"token": -> Create an apiKey for this instance
+**"instanceName":** -> _the desired name for the instance_
+**"token":** -> _Create an apiKey for this instance_
 
     {
        "instanceName": "Name_Instance",
@@ -78,6 +78,16 @@ Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_in
 
 
 
+### Note: remembering that both the create and set endpoint you need to send the apiKey that is in the .env file in the authorization field in postman or select Api Key Auth in Insomnia
+
+
+![apiKey_env](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/aa24cec6-439d-49c5-980d-c4556768c9de)
+
+
+
+
+
+
 With the return from **set chatwoot**, you will get the data from 2 variables:
 
 *    **"name_inbox"**
@@ -92,7 +102,6 @@ In the **Channel Name** field, enter what came in **"name_inbox"**, and in the *
 Proceed with the remaining steps until you finish and create your inbox.
 
 ![canal-api](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/eafff7a5-084d-40ec-b4bf-20491c3967c9)
-
 
 
 To generate the QRCode in the inbox, go to __contacts__, then __new contacts__, and __add a contact__ containing the following data as shown in the image below:
