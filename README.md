@@ -37,6 +37,13 @@ Wait while it compiles all the data. After completion, enter the following comma
 
     docker-compose run --rm rails bundle exec rails db:chatwoot_prepare
 
+**Note: If you get the error in the image below, run the command again.**
+
+    docker-compose run --rm rails bundle exec rails db:chatwoot_prepare
+
+![erro-postgres](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/880269df-d7ce-498b-b6dd-6a4f3f5fdcda)
+
+
 The above command will create the entire Chatwoot database. Finally, to finish, execute this command to bring up all the containers:
 
     docker-compose up
@@ -47,6 +54,7 @@ Create an Instance in EvolutionApi
 Send a **JSON** of type **POST** to the URL **localhost:8080/instance/create**
 
 **"instanceName":** -> _the desired name for the instance_
+
 **"token":** -> _Create an apiKey for this instance_
 
     {
@@ -69,11 +77,11 @@ Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_in
 **chosen_instance_name** -> *This refers to the name chosen when creating the instance.*
 
     {
-	   "enabled": true,
-	   "account_id": "id_user_chatwoot",
-       "token": "Token_of_user_chatwoot",
-       "url": "http://rails:3000",
-       "sign_msg": true
+	"enabled": true,
+	"account_id": "id_user_chatwoot",
+        "token": "Token_of_user_chatwoot",
+        "url": "http://rails:3000",
+        "sign_msg": true
     }
 
 ![set_chatwoot](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/6be316c2-a8ce-4d23-9034-43285c3b2fad)
@@ -84,8 +92,6 @@ Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_in
 
 
 ![apiKey_env](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/aa24cec6-439d-49c5-980d-c4556768c9de)
-
-
 
 
 
