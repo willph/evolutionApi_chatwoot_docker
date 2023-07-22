@@ -76,4 +76,3 @@ volumes:
 networks:
   evolution-net:
     external: true
-  
