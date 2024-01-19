@@ -39,7 +39,7 @@ Wait while it compiles all the data. After completion, enter the following comma
 
 **Note: If you get the error in the image below, run the command again.**
 
-    docker-compose run --rm rails bundle exec rails db:chatwoot_prepare
+    docker-compose run --rm --trace rails bundle exec rails db:chatwoot_prepare
 
 ![erro-postgres](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/880269df-d7ce-498b-b6dd-6a4f3f5fdcda)
 
