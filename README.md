@@ -81,7 +81,9 @@ Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_in
 	"account_id": "id_user_chatwoot",
         "token": "Token_of_user_chatwoot",
         "url": "http://rails:3000",
-        "sign_msg": true
+        "sign_msg": true,
+        "reopen_conversation": true,
+        "conversation_pending": true
     }
 
 ![set_chatwoot](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/6be316c2-a8ce-4d23-9034-43285c3b2fad)
