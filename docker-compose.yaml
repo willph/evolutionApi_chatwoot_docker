@@ -83,7 +83,7 @@ services:
       context: ./evolution-api
       dockerfile: Dockerfile
     container_name: evolution-api
-    image: evolution/api:local
+    image: atendai/evolution-api
     restart: always
     volumes:
       - ./evolution-api/evolution_instances:/evolution/instances
