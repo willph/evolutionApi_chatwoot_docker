@@ -180,9 +180,9 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
-      - "8083:3000" #typebot build
-      - "8084:3000" #typebot view
-      - "8085:9000" #minio
+      - "8083:8083" #typebot build
+      - "8084:8084" #typebot view
+      - "8085:8085" #minio
     networks: 
       - evolution-network
     depends_on:
