@@ -134,7 +134,7 @@ services:
       - POSTGRES_DB=typebot
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=typebot
-  typebotbuilder:
+  typebot-builder:
     image: baptistearno/typebot-builder:latest
     restart: always
     depends_on:
@@ -142,10 +142,14 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file: .env
-  typebotviewer:
+    ports:
+      - '8083:3000'
+  typebot-viewer:
     image: baptistearno/typebot-viewer:latest
     restart: always
     env_file: .env
+    ports:
+      - '8084:3000'
   minio:
     image: minio/minio
     command: server /data
@@ -154,6 +158,8 @@ services:
       MINIO_ROOT_PASSWORD: minioPassWord
     volumes:
       - ./volumes/s3:/data
+    ports:
+      - '8085:9000'
   # This service just makes sure a bucket with the right policies is created
   createbuckets:
     image: minio/mc
@@ -167,6 +173,8 @@ services:
       /usr/bin/mc anonymous set public minio/typebot/public;
       exit 0;
       "
+    ports:
+      - '8086:9000'
 
   nginx:
     build: 
@@ -178,9 +186,6 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
-      - "8083:8083" #typebot build
-      - "8084:8084" #typebot view
-      - "8085:8085" #minio
     networks: 
       - evolution-network
     depends_on:
