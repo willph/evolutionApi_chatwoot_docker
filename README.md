@@ -97,24 +97,9 @@ To set a created instance in EvolutionApi to Chatwoot, you only need to provide 
 
 * **"account_id":** *the id of the created Chatwoot user*
 * **"token":** *token of this created user*
-* **"url": "http://rails:3000"** *This remains unchanged as it is the container where Chatwoot is located.*
+* **"url"**: *This url where Chatwoot is located.*
 
-Send the JSON as a POST request to the URL localhost:8080/chatwoot/set/chosen_instance_name
-
-**chosen_instance_name** -> *This refers to the name chosen when creating the instance.*
-
-    {
-	"enabled": true,
-	"account_id": "id_user_chatwoot",
-        "token": "Token_of_user_chatwoot",
-        "url": "http://rails:3000",
-        "sign_msg": true,
-        "reopen_conversation": true,
-        "conversation_pending": true
-    }
-
-![set_chatwoot](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/6be316c2-a8ce-4d23-9034-43285c3b2fad)
-
+![image](https://github.com/user-attachments/assets/99ece767-940d-455e-a2c0-ebd7559da545)
 
 
 ### Note: remembering that both the create and set endpoint you need to send the apiKey that is in the .env file in the authorization field in postman or select Api Key Auth in Insomnia
@@ -159,8 +144,8 @@ Now, just go to the inbox and scan the generated QRCode.
 
 
 
-## Postman EvolutionApi v1.3.1
-    https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6
+## Postman EvolutionApi v2.0.10
+    [https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6](https://www.postman.com/agenciadgcode/evolution-api/collection/gqr041s/evolution-api-v2-0)
 
 #### Note: All tests were performed using Windows 10 and Docker Desktop 4.21.1 (114176). Even though the tutorial is not complete and lacks images, those with some knowledge should be able to test it.
 
