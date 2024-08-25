@@ -126,7 +126,6 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
-      - "8083:8083" #redis_chatwoot
     networks: 
       - evolution-network
     depends_on:
