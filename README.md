@@ -27,6 +27,23 @@ To copy and paste the file .env.example as .env in these two locations, run the 
     cp .env.example .env
     cp evolution-api/Docker/.env.example evolution-api/Docker/.env
 
+
+Edit the root **.env** file. 
+To do this type **nano .env**
+
+To generate a SECRET_KEY_BASE for Chatwoot use https://www.browserling.com/tools/random-hex or another of your preference
+
+Paste the generated code in SECRET_KEY_BASE=**replace_with_lengthy_secure_hex**
+
+Now Edit the evolution-api/**.env** file. 
+To do this type **nano evolution-api/.env**
+
+To generate a AUTHENTICATION_API_KEY for evolution use https://api-keygen.com/ and select UUID or another of your preference
+
+Paste the generated code in AUTHENTICATION_API_KEY=**GENERATE_YOUR_API_KEY**
+
+
+
 Inside the "evolution_chatwoot" folder, execute:
 
     docker-compose up --build --no-start
@@ -48,6 +65,10 @@ The above command will create the entire Chatwoot database. Finally, to finish, 
 
     docker-compose up
 
+or no prompt output
+
+    docker-compose up -d
+
 
 
 Create an Instance in EvolutionApi
@@ -64,6 +85,10 @@ Send a **JSON** of type **POST** to the URL **localhost:8080/instance/create**
     }
 
 ![create_instance](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/4d84ba91-5f7c-4be8-96c6-731378ada804)
+
+OR
+
+Use manager in web. Type https://URL_of_Evolution/manager
 
 
 To set a created instance in EvolutionApi to Chatwoot, you only need to provide the following data:
