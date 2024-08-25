@@ -2,7 +2,7 @@ version: '3'
 
 services:
   base: &base
-    image: chatwoot/chatwoot:latest
+    image: sendingtk/chatwoot:v3.11.0
     container_name: chatwoot
     hostname: lchatwoot
     env_file: .env 
@@ -40,18 +40,32 @@ services:
     restart: unless-stopped
     command: ['bundle', 'exec', 'sidekiq', '-C', 'config/sidekiq.yml']
 
-  postgres:
-    image: postgres:12
-    container_name: chatwoot-postgres
-    hostname: chatwoot-postgres
+  postgres-chatwoot:
+    image: postgres:14
+    container_name: postgres-chatwoot
+    hostname: postgres-chatwoot
     restart: always
     volumes:
-      - ./chatwoot/data/postgres:/var/lib/postgresql/data
+      - ./database/chatwoot/postgres:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=chatwoot
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=chatwoot
     networks: 
+      - evolution-network
+    
+  postgres-evolution:
+  image: postgres:14
+  container_name: postgres-evolution
+  hostname: postgres-evolution
+  restart: always
+  volumes:
+      - ./database/evolution/postgres:/var/lib/postgresql/data
+  environment:
+      - POSTGRES_DB=evolution
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=evolution
+  networks: 
       - evolution-network
   
   pgadmin:
@@ -66,33 +80,40 @@ services:
     networks:
       - evolution-network
 
-  redis:
+  redis-chatwoot:
     image: redis:alpine
-    container_name: chatwoot-redis
-    hostname: chatwoot-redis
+    container_name: redis-chatwoot
+    hostname: redis-chatwoot
     restart: always
     command: ["sh", "-c", "redis-server --requirepass \"$REDIS_PASSWORD\""]
     env_file: .env
     volumes:
-      - ./chatwoot/data/redis:/data
+      - ./database/chatwoot/redis:/data
+    networks: 
+      - evolution-network
+
+  redis-evolution:
+    image: redis:alpine
+    container_name: redis-evolution
+    hostname: redis-evolution
+    restart: always
+    command: ["sh", "-c", "redis-server --requirepass \"$CACHE_REDIS_PASSWORD\""]
+    env_file: ./evolution-api/.env
+    volumes:
+      - ./database/evolution/redis:/data
     networks: 
       - evolution-network
   
-  evolution-api:
-    build: 
-      context: ./evolution-api
-      dockerfile: Dockerfile
+  evolution:
+    image: atendai/evolution-api:v2.0.10
     container_name: evolution-api
-    image: atendai/evolution-api
-    restart: always
     volumes:
       - ./evolution-api/evolution_instances:/evolution/instances
-      - ./evolution-api/evolution_store:/evolution/store
-    env_file:
-      - ./evolution-api/Docker/.env
-    command: ['node', './dist/src/main.js']
-    networks: 
+
+    networks:
       - evolution-network
+
+    env_file: ./evolution-api/.env
 
   nginx:
     build: 
@@ -104,15 +125,12 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
-      - "8083:8083" #redis
+      - "8083:8083" #redis_chatwoot
+      - "8084:8084" #redis_evolution
     networks: 
       - evolution-network
     depends_on:
       - evolution-api
-
-volumes:
-  evolution_instances:
-  evolution_store:
 
 networks: 
   evolution-network:
