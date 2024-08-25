@@ -138,8 +138,6 @@ services:
       - evolution-network
     depends_on:
       - evolution
-      - typebot-builder
-      - typebot-viewer
 
 networks: 
   evolution-network:
