@@ -140,13 +140,15 @@ services:
       - typebot-db
     extra_hosts:
       - 'host.docker.internal:host-gateway'
-    env_file: .env
+    env_file:
+      - ./typebot/.env
     ports:
       - "8083:3000"
   typebot-viewer:
     image: baptistearno/typebot-viewer:latest
     restart: always
-    env_file: .env
+    env_file:
+      - ./typebot/.env
     ports:
       - "8084:3000"
   minio:
