@@ -142,13 +142,13 @@ services:
       - 'host.docker.internal:host-gateway'
     env_file: .env
     ports:
-      -"8083:3000"
+      - "8083:3000"
   typebot-viewer:
     image: baptistearno/typebot-viewer:latest
     restart: always
     env_file: .env
     ports:
-      -"8084:3000"
+      - "8084:3000"
   minio:
     image: minio/minio
     command: server /data
