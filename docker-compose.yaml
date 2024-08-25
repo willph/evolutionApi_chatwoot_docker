@@ -185,8 +185,8 @@ services:
       - evolution-network
     depends_on:
       - evolution
-      - typebot-builder
-      - typebot-viewer
+      - typebotbuilder
+      - typebotviewer
 
 networks: 
   evolution-network:
