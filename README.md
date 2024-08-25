@@ -43,12 +43,12 @@ To generate a AUTHENTICATION_API_KEY for evolution use https://api-keygen.com/ a
 Paste the generated code in AUTHENTICATION_API_KEY=**GENERATE_YOUR_API_KEY**
 
 
+Delete the __data__ folder located inside __chatwoot__ and recreate it. Inside the __data__ folder, create two new folders: __redis__ and __postgres__.
+
 
 Inside the "evolution_chatwoot" folder, execute:
 
     docker-compose up --build --no-start
-
-Delete the __data__ folder located inside __chatwoot__ and recreate it. Inside the __data__ folder, create two new folders: __redis__ and __postgres__.
 
 Wait while it compiles all the data. After completion, enter the following command:
 
