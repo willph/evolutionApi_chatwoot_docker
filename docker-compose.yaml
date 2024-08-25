@@ -21,6 +21,11 @@ services:
     environment:
       - NODE_ENV=production
       - RAILS_ENV=production
+    volumes:
+      - ./volumes/chatwoot_nestor_storage:/app/storage ## Arquivos de conversa
+      - ./volumes/chatwoot_nestor_public:/app/public ## Arquivos de logos
+      - ./volumes/chatwoot_nestor_mailer:/app/app/views/devise/mailer ## Arquivos de email
+      - ./volumeschatwoot_nestor_mailers:/app/app/views/mailers ## Arquivos de emails
     networks: 
       - evolution-network
     entrypoint: docker/entrypoints/rails.sh
@@ -36,6 +41,11 @@ services:
     environment:
       - NODE_ENV=production
       - RAILS_ENV=production
+    volumes:
+      - ./volumes/chatwoot_nestor_storage:/app/storage ## Arquivos de conversa
+      - ./volumes/chatwoot_nestor_public:/app/public ## Arquivos de logos
+      - ./volumes/chatwoot_nestor_mailer:/app/app/views/devise/mailer ## Arquivos de email
+      - ./volumeschatwoot_nestor_mailers:/app/app/views/mailers ## Arquivos de emails
     networks: 
       - evolution-network
     restart: unless-stopped
@@ -116,6 +126,50 @@ services:
     env_file:
       - ./evolution-api/.env
 
+
+  typebot-db:
+    image: postgres:14
+    restart: always
+    volumes:
+      - ./database/typebot/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=typebot
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=typebot
+  typebot-builder:
+    image: baptistearno/typebot-builder:latest
+    restart: always
+    depends_on:
+      - typebot-db
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    env_file: .env
+  typebot-viewer:
+    image: baptistearno/typebot-viewer:latest
+    restart: always
+    env_file: .env
+  minio:
+    image: minio/minio
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minioPassWord
+    volumes:
+      - ./volumes/s3:/data
+  # This service just makes sure a bucket with the right policies is created
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      sleep 10;
+      /usr/bin/mc config host add minio http://minio:9000 minio minioPassWord;
+      /usr/bin/mc mb minio/typebot;
+      /usr/bin/mc anonymous set public minio/typebot/public;
+      exit 0;
+      "
+
   nginx:
     build: 
       context: ./nginx
@@ -126,6 +180,9 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
+      - "8083:3000" #typebot build
+      - "8084:3000" #typebot view
+      - "8085:9000" #minio
     networks: 
       - evolution-network
     depends_on:
