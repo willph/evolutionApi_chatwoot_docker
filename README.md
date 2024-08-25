@@ -72,21 +72,6 @@ or no prompt output
 
 
 Create an Instance in EvolutionApi
-Send a **JSON** of type **POST** to the URL **localhost:8080/instance/create**
-
-**"instanceName":** -> _the desired name for the instance_
-
-**"token":** -> _Create an apiKey for this instance_
-
-    {
-       "instanceName": "Name_Instance",
-       "token": "Create_apiKey",
-       "qrcode": true
-    }
-
-![create_instance](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/4d84ba91-5f7c-4be8-96c6-731378ada804)
-
-OR
 
 Use manager in web. Type https://URL_of_Evolution/manager
 
@@ -102,19 +87,7 @@ To set a created instance in EvolutionApi to Chatwoot, you only need to provide 
 ![image](https://github.com/user-attachments/assets/99ece767-940d-455e-a2c0-ebd7559da545)
 
 
-### Note: remembering that both the create and set endpoint you need to send the apiKey that is in the .env file in the authorization field in postman or select Api Key Auth in Insomnia
-
-
-![apiKey_env](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/aa24cec6-439d-49c5-980d-c4556768c9de)
-
-
-
-
-With the return from **set chatwoot**, you will get the data from 2 variables:
-
-*    **"name_inbox"**
-*    **"webhook_url":**
-
+# If you want to create the inbox manually.
 These variables will be used to create an inbox in Chatwoot.
 
 With Chatwoot open and properly logged in, click on **Settings**, then on **Inbox**, and **Add an Inbox**. Choose **API** as the type.
@@ -122,6 +95,11 @@ With Chatwoot open and properly logged in, click on **Settings**, then on **Inbo
 In the **Channel Name** field, enter what came in **"name_inbox"**, and in the **Webhook URL** field, enter what came in **"webhook_url":**.
 
 Proceed with the remaining steps until you finish and create your inbox.
+
+
+* **Inbox Name** = Instances Name in Evolution-Api
+
+* **URL of webhook** = https://base-url/chatwoot/webhook/instace
 
 ![canal-api](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/eafff7a5-084d-40ec-b4bf-20491c3967c9)
 
