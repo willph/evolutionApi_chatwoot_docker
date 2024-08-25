@@ -87,6 +87,12 @@ To set a created instance in EvolutionApi to Chatwoot, you only need to provide 
 ![image](https://github.com/user-attachments/assets/99ece767-940d-455e-a2c0-ebd7559da545)
 
 
+### If the *Automatically Creates* option is enabled, it will create an inbox in Chatwoot automatically. There is no need to create it manually.
+
+![image](https://github.com/user-attachments/assets/2c14f2e2-1439-4b5d-babd-ffaf29c60942)
+
+
+
 # If you want to create the inbox manually.
 These variables will be used to create an inbox in Chatwoot.
 
@@ -102,6 +108,7 @@ Proceed with the remaining steps until you finish and create your inbox.
 * **URL of webhook** = https://url-Evolution-Api/chatwoot/webhook/instance
 
 ![canal-api](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/eafff7a5-084d-40ec-b4bf-20491c3967c9)
+
 
 
 To generate the QRCode in the inbox, go to __contacts__, then __new contacts__, and __add a contact__ containing the following data as shown in the image below:
