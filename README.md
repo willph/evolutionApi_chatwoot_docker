@@ -90,6 +90,8 @@ OR
 
 Use manager in web. Type https://URL_of_Evolution/manager
 
+![image](https://github.com/user-attachments/assets/125e4eb6-130b-4e1e-9f16-9729181eae6a)
+
 
 To set a created instance in EvolutionApi to Chatwoot, you only need to provide the following data:
 
