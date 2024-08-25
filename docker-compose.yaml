@@ -124,7 +124,6 @@ services:
     env_file:
       - ./evolution-api/.env
 
-
   typebot-db:
     image: postgres:14
     restart: always
@@ -142,13 +141,19 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file: .env
+    ports:
+      -"8083:3000"
   typebot-viewer:
     image: baptistearno/typebot-viewer:latest
     restart: always
     env_file: .env
+    ports:
+      -"8084:3000"
   minio:
     image: minio/minio
     command: server /data
+    ports:
+      - "8085:9000" # minio
     environment:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minioPassWord
@@ -178,9 +183,6 @@ services:
       - "8080:8080" #Evolution
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
-      - "8083:8083" #typebot build
-      - "8084:8084" #typebot view
-      - "8085:8085" #minio
     networks: 
       - evolution-network
     depends_on:
