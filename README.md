@@ -99,7 +99,7 @@ Proceed with the remaining steps until you finish and create your inbox.
 
 * **Inbox Name** = Instances Name in Evolution-Api
 
-* **URL of webhook** = https://base-url/chatwoot/webhook/instace
+* **URL of webhook** = https://url-Evolution-Api/chatwoot/webhook/instance
 
 ![canal-api](https://github.com/willph/evolutionApi_chatwoot_docker/assets/17226802/eafff7a5-084d-40ec-b4bf-20491c3967c9)
 
@@ -125,8 +125,13 @@ Now, just go to the inbox and scan the generated QRCode.
 ## Postman EvolutionApi v2.0.10
     [https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6](https://www.postman.com/agenciadgcode/evolution-api/collection/gqr041s/evolution-api-v2-0)
 
-#### Note: All tests were performed using Windows 10 and Docker Desktop 4.21.1 (114176). Even though the tutorial is not complete and lacks images, those with some knowledge should be able to test it.
+#### Note: All tests were performed using Ubuntu 22.04 and Docker version 24.0.7. Even though the tutorial is not complete and lacks images, those with some knowledge should be able to test it.
+#### Don't forget that if you are going to put it into production, please change the passwords for greater security.
 
+
+# DONATE
+
+If you want to help us with any amount, send it to will.phelipe@gmail.com PIX or PayPal
 
 _If you need any further assistance, don't hesitate to ask._
 
