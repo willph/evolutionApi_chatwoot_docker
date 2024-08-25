@@ -25,7 +25,7 @@ After that, run the following command:
 To copy and paste the file .env.example as .env in these two locations, run the following commands:
 
     cp .env.example .env
-    cp evolution-api/Docker/.env.example evolution-api/Docker/.env
+    cp evolution-api/.env.example evolution-api/.env
 
 
 Edit the root **.env** file. 
