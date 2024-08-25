@@ -98,7 +98,7 @@ services:
     container_name: redis-evolution
     hostname: redis-evolution
     restart: always
-    command: ["sh", "-c", "redis-server --requirepass \"$REDIS_PASSWORD\""]
+    command: [ "redis-server", "--appendonly", "yes", "--port", "6379" ]
     env_file:
       - ./evolution-api/.env
     volumes:
@@ -127,7 +127,6 @@ services:
       - "8081:8081" #Chatwoot
       - "8082:8082" #pgadmin
       - "8083:8083" #redis_chatwoot
-      - "8084:8084" #redis_evolution
     networks: 
       - evolution-network
     depends_on:

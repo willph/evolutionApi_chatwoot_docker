@@ -1,4 +1,7 @@
-FROM nginx:1.25.1-alpine
+FROM nginx:1.27.0-alpine3.19
+
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
+
+# Copie o arquivo principal de configuração do Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
