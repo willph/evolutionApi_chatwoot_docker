@@ -39,11 +39,6 @@ services:
     environment:
       - NODE_ENV=production
       - RAILS_ENV=production
-    volumes:
-      - ./volumes/chatwoot_nestor_storage:/app/storage ## Arquivos de conversa
-      - ./volumes/chatwoot_nestor_public:/app/public ## Arquivos de logos
-      - ./volumes/chatwoot_nestor_mailer:/app/app/views/devise/mailer ## Arquivos de email
-      - ./volumes/chatwoot_nestor_mailers:/app/app/views/mailers ## Arquivos de emails
     networks: 
       - evolution-network
     restart: unless-stopped
