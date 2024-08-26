@@ -129,9 +129,10 @@ Now, just go to the inbox and scan the generated QRCode.
 
 
 
-## Postman EvolutionApi v2.0.10
-    [https://www.postman.com/agenciadgcode/workspace/evolution-api/collection/26869335-21d9320d-803f-4adb-80b3-a5bcbda2dfe6](https://www.postman.com/agenciadgcode/evolution-api/collection/gqr041s/evolution-api-v2-0)
+## Postman EvolutionApi v2.1.0
 
+    https://www.postman.com/agenciadgcode/evolution-api/collection/muiu27c/evolution-api-v2-1
+   
 #### Note: All tests were performed using Ubuntu 22.04 and Docker version 24.0.7. Even though the tutorial is not complete and lacks images, those with some knowledge should be able to test it.
 #### Don't forget that if you are going to put it into production, please change the passwords for greater security.
 
