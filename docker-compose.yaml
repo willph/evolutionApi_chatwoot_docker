@@ -1,6 +1,6 @@
 services:
   base: &base
-    image: sendingtk/chatwoot:v3.12.0
+    image: sendingtk/chatwoot:v3.12.5
     container_name: chatwoot
     hostname: lchatwoot
     env_file: .env 
