@@ -139,7 +139,7 @@ Now, just go to the inbox and scan the generated QRCode.
 
 # DONATE
 
-If you want to help us with any amount, send it to will.phelipe@gmail.com PIX or PayPal
+If you want to help us with any amount, send it to will.phelipe@gmail.com PayPal or https://ko-fi.com/wilmerson
 
 _If you need any further assistance, don't hesitate to ask._
 
