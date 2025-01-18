@@ -105,7 +105,7 @@ services:
       - evolution-network
   
   evolution:
-    image: atendai/evolution-api:v2.1.0
+    image: atendai/evolution-api:v2.2.0
     container_name: evolution-api
     volumes:
       - ./evolution-api/evolution_instances:/evolution/instances
